@@ -1,0 +1,32 @@
+{
+  "name": "anonymouscredentials",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "circom_genesis_compile": "./node_modules/.bin/circom block.circom -o ./Genesis/circuitBlock.json --protocol groth",
+    "snark_genesis_setup": "./node_modules/.bin/snarkjs setup -c ./Genesis/circuitBlock.json --pk ./Genesis/proving_key_genesis.json --vk ./Genesis/verification_key_genesis.json --protocol groth",
+    "snark_genesis_witness": "./node_modules/.bin/snarkjs calculatewitness -c ./Genesis/circuitBlock.json -i ./Genesis/inputGenesis.json -w ./Genesis/witnessGenesis.json",
+    "snark_genesis_prove": "./node_modules/.bin/snarkjs proof -w ./Genesis/witnessGenesis.json --pk ./Genesis/proving_key_genesis.json --proof ./Genesis/proofGenesis.json --pub ./Genesis/publicGenesis.json",
+    "snark_genesis_verify": "./node_modules/.bin/snarkjs verify --vk ./Genesis/verification_key_genesis.json --proof ./Genesis/proofGenesis.json --pub ./Genesis/publicGenesis.json",
+
+    "circom_block_compile": "./node_modules/.bin/circom block.circom -o ./Block/circuitBlock.json --protocol groth",
+    "snark_block_setup": "./node_modules/.bin/snarkjs setup -c ./Block/circuitBlock.json --pk ./Block/proving_key_block.json --vk ./Block/verification_key_block.json --protocol groth",
+    "snark_block_witness": "./node_modules/.bin/snarkjs calculatewitness -c ./Block/circuitBlock.json -i ./Block/inputBlock.json -w ./Block/witnessBlock.json",
+    "snark_block_prove": "./node_modules/.bin/snarkjs proof -w ./Block/witnessBlock.json --pk ./Block/proving_key_block.json --proof ./Block/proofBlock.json --pub ./Block/publicBlock.json",
+    "snark_block_verify": "./node_modules/.bin/snarkjs verify --vk ./Block/verification_key_block.json --proof ./Block/proofBlock.json --pub ./Block/publicBlock.json",
+    
+    "circom_valid_compile": "./node_modules/.bin/circom valid.circom -o ./Valid/circuitValid.json --protocol groth",
+    "snark_valid_setup": "./node_modules/.bin/snarkjs setup -c ./Valid/circuitValid.json --pk ./Valid/proving_key_valid.json --vk ./Valid/verification_key_valid.json --protocol groth",
+    "snark_valid_witness": "./node_modules/.bin/snarkjs calculatewitness -c ./Valid/circuitValid.json -i ./Valid/inputValid.json -w ./Valid/witnessValid.json",
+    "snark_valid_prove": "./node_modules/.bin/snarkjs proof -w ./Valid/witnessValid.json --pk ./Valid/proving_key_valid.json --proof ./Valid/proofValid.json --pub ./Valid/publicValid.json",
+    "snark_valid_verify": "./node_modules/.bin/snarkjs verify --vk ./Valid/verification_key_valid.json --proof ./Valid/proofValid.json --pub ./Valid/publicValid.json"
+  },
+  "author": "Sophoclis Stephanou",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "circom": "0.0.34",
+    "circomlib": "git+https://github.com/kobigurk/circomlib.git#4284dc1ef984a204db08864f5da530c97f9376ef",
+    "snarkjs": "git+https://github.com/weijiekoh/snarkjs.git#ef8bbbbe5a7d37f59cdb45d3fdf2c1dcf7dd9c7a"
+  }
+}

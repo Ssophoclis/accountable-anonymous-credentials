@@ -1,0 +1,12 @@
+{
+  "name": "balancedmerkletree",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Sophoclis Stephanou",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "circomlib": "^0.2.3",
+    "web3": "^1.2.11"
+  }
+}

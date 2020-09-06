@@ -1,0 +1,15 @@
+{
+  "name": "anonymouscredentials",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Sophoclis Stephanou",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "circom": "^0.5.17",
+    "circomlib": "^0.2.3",
+    "web3": "^1.2.11",
+    "snarkjs": "git+https://github.com/Ssophoclis/snarkjs.git#24e3707c44db17aa641f15eb722a78ada9e0fd04"
+  }
+}
